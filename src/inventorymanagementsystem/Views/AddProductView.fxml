@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane prefHeight="600.0" prefWidth="1000.0" styleClass="mainGridPane" stylesheets="@InventoryManagementSystemLayout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventorymanagementsystem.Controllers.AddProductViewController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <GridPane styleClass="subGridPane">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="482.6233825683594" minWidth="10.0" prefWidth="341.0627746582031" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="738.9628601074219" minWidth="10.0" prefWidth="636.9372253417969" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="186.62339782714844" minHeight="10.0" prefHeight="103.66731262207031" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="543.0285263061523" minHeight="10.0" prefHeight="474.3326873779297" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+         <children>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.54315185546875" minWidth="10.0" prefWidth="31.74810791015625" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="606.1624145507812" minWidth="10.0" prefWidth="559.7347412109375" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="605.2518920898438" minWidth="10.0" prefWidth="48.2652587890625" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="123.73477172851562" minHeight="10.0" prefHeight="72.556396484375" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="169.11285400390625" minHeight="10.0" prefHeight="99.44308471679688" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TableView fx:id="allPartsTableView" onMouseClicked="#enableAddButton" GridPane.columnIndex="1">
+                     <columns>
+                        <TableColumn fx:id="allPartsIDColumn" prefWidth="75.0" styleClass="subTableColumnLabel" text="Part ID" />
+                        <TableColumn fx:id="allPartsNameColumn" prefWidth="75.0" styleClass="subTableColumnLabel" text="Part Name" />
+                        <TableColumn fx:id="allPartsInventoryLevelColumn" prefWidth="75.0" styleClass="subTableColumnLabel" text="Inventory Level" />
+                        <TableColumn fx:id="allPartsPriceColumn" prefWidth="75.0" styleClass="subTableColumnLabel" text="Price per Unit" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <TableView fx:id="selectedPartTableView" onMouseClicked="#enableDeleteButton" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <columns>
+                        <TableColumn fx:id="selectedPartIDColumn" prefWidth="75.0" styleClass="subTableColumnLabel" text="Part ID" />
+                        <TableColumn fx:id="selectedPartNameColumn" prefWidth="75.0" styleClass="subTableColumnLabel" text="Part Name" />
+                        <TableColumn fx:id="selectedPartInventoryLevelColumn" prefWidth="75.0" styleClass="subTableColumnLabel" text="Inventory Level" />
+                        <TableColumn fx:id="selectedPartPriceColumn" prefWidth="75.0" styleClass="subTableColumnLabel" text="Price per Unit" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="426.11187744140625" minWidth="10.0" prefWidth="422.445068359375" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.2716064453125" minWidth="10.0" prefWidth="136.554931640625" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="37.271575927734375" minHeight="6.178924560546875" prefHeight="10.33270263671875" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="95.73159790039062" minHeight="10.0" prefHeight="84.66729736328125" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="30.0" prefWidth="100.0" text="Add" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                     </children>
+                  </GridPane>
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteButtonClicked" prefHeight="30.0" prefWidth="100.0" text="Delete" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="30.0" prefWidth="100.0" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="30.0" prefWidth="100.0" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.2360534667969" minWidth="10.0" prefWidth="321.3254699707031" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.66748046875" minWidth="10.0" prefWidth="103.44500732421875" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.65484619140625" minWidth="10.0" prefWidth="134.55499267578125" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="45.45684814453125" minHeight="0.0" prefHeight="13.00048828125" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="88.44552612304688" minHeight="10.0" prefHeight="49.88958740234375" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="81.0958251953125" minHeight="10.0" prefHeight="40.11041259765625" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.82424926757812" minWidth="10.0" prefWidth="155.82424926757812" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.27157592773438" minWidth="10.0" prefWidth="106.17575073242188" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.3323974609375" minWidth="10.0" prefWidth="153.53680419921875" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.46319580078125" minWidth="10.0" prefWidth="189.46319580078125" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonClicked" prefWidth="80.0" text="search" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <TextField fx:id="searchTextField" styleClass="mainSearchBar" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets bottom="12.5" />
+                     </GridPane.margin>
+                  </TextField>
+               </children>
+            </GridPane>
+            <Label styleClass="mainLabel" text="Add Product" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="30.0" />
+               </GridPane.margin>
+            </Label>
+            <GridPane GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="329.0348815917969" minHeight="10.0" prefHeight="28.268402099609375" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="329.0348815917969" minHeight="10.0" prefHeight="286.2842712402344" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="201.65798950195312" minHeight="10.0" prefHeight="145.71572875976562" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="IDLabel" text="ID" GridPane.halignment="LEFT">
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="nameLabel" text="Name" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="inventoryLabel" text="Inv" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="priceLabel" text="Price" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="maxLabel" text="Max" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="IDTextField" editable="false" promptText="Product ID" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets right="90.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="nameTextField" promptText="Product Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="90.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="inventoryTextField" promptText="Inv" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="175.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="priceTextField" promptText="Price" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets right="175.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <TextField fx:id="maxTextField" promptText="Max" />
+                              <TextField fx:id="minTextField" promptText="Min" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets right="35.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label fx:id="minLabel" text="Min" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="82.20257568359375" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.45999145507812" minWidth="10.0" prefWidth="46.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.91412353515625" minWidth="10.0" prefWidth="124.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.30857849121094" minWidth="10.0" prefWidth="81.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.1339416503906" minWidth="10.0" prefWidth="260.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</GridPane>
